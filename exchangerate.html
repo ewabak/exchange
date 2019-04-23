@@ -1,0 +1,53 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Exchange rate</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+
+<body>
+
+    
+<script>
+    function display(){
+$.getJSON("http://api.nbp.pl/api/exchangerates/rates/a/eur", function(data){
+    
+    var eur = data.rates[0].mid;
+    $('.eur').append(eur);
+    console.log(eur);
+});
+
+$.getJSON("http://api.nbp.pl/api/exchangerates/rates/a/usd", function(data){
+    
+    var usd = data.rates[0].mid;
+    $('.usd').append(usd);
+    console.log(usd);
+});
+
+$.getJSON("http://api.nbp.pl/api/exchangerates/rates/a/gbp", function(data){
+    
+    var gbp = data.rates[0].mid;
+    $('.gbp').append(gbp);
+    console.log(gbp);
+});
+
+$.getJSON("http://api.nbp.pl/api/exchangerates/rates/a/chf", function(data){
+    
+    var chf = data.rates[0].mid;
+    $('.chf').append(chf);
+    console.log(chf);
+});
+}
+
+</script>
+
+<input type="button" onclick="display()" value="Load" />
+
+<div class="data">
+        <p class="eur">Euro exchange rate:</p>
+        <p class="usd">Dollar exchange rate:</p>
+        <p class="gbp">Pound sterling exchange rate:</p>
+        <p class="chf">Swiss franc exchange rate:</p>
+
+
+    </div>
+</body>
