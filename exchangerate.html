@@ -9,44 +9,45 @@
     
 <script>
     function display(){
+
 $.getJSON("http://api.nbp.pl/api/exchangerates/rates/a/eur", function(data){
     
     var eur = data.rates[0].mid;
-    $('.eur').append(eur);
+    $('.eur').html(eur);
     console.log(eur);
 });
 
 $.getJSON("http://api.nbp.pl/api/exchangerates/rates/a/usd", function(data){
     
     var usd = data.rates[0].mid;
-    $('.usd').append(usd);
+    $('.usd').html(usd);
     console.log(usd);
 });
 
 $.getJSON("http://api.nbp.pl/api/exchangerates/rates/a/gbp", function(data){
     
     var gbp = data.rates[0].mid;
-    $('.gbp').append(gbp);
+    $('.gbp').html(gbp);
     console.log(gbp);
 });
 
 $.getJSON("http://api.nbp.pl/api/exchangerates/rates/a/chf", function(data){
     
     var chf = data.rates[0].mid;
-    $('.chf').append(chf);
+    $('.chf').html(chf);
     console.log(chf);
 });
 }
 
 </script>
 
-<input type="button" onclick="display()" value="Load" />
+<input type="button" onclick="display()" value="Load" onClick=""/>
 
 <div class="data">
-        <p class="eur">Euro exchange rate:</p>
-        <p class="usd">Dollar exchange rate:</p>
-        <p class="gbp">Pound sterling exchange rate:</p>
-        <p class="chf">Swiss franc exchange rate:</p>
+    <p style="display:inline">Euro exchange rate: <p class="eur" style="display:inline"></p></p>
+    <p style="display:inline">Dollar exchange rate: <p class="usd" style="display:inline"></p></p>
+    <p style="display:inline">Pound sterling exchange rate: <p class="gbp" style="display:inline"></p></p>
+    <p style="display:inline">Swiss franc exchange rate: <p class="chf" style="display:inline"></p></p>
 
 
     </div>
